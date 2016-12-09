@@ -14,6 +14,22 @@
         room = "chat-dev2";
     }
 
+    $$("#room_name").text(room)
+    $$('#room_name').on('click', function () {
+        myApp.prompt('Which room are you in?', 'Change Room',
+            function (value) {
+                if (value === "") {
+                    myApp.alert("No room provided.", "Error");
+                } else {
+                    window.location.href = "http://" + window.location.host + "/core/?room=" + value;
+                }
+            },
+            function (value) {
+                return;
+            }
+        );
+    });
+
 
 
     var socket = new WebSocket("ws://" + window.location.host + "/" + room + "/");
