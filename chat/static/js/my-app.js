@@ -16,7 +16,7 @@
 
     $$("#room_name").text(room)
     $$('#room_name').on('click', function () {
-        myApp.prompt('Which room are you in?', 'Change Room',
+        myApp.prompt('Which room are you going to?', 'Change Room',
             function (value) {
                 if (value === "") {
                     myApp.alert("No room provided.", "Error");
