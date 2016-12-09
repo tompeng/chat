@@ -91,6 +91,7 @@
                 } else {
                     $$("#current_user").text("Logged in as: " + value);
                     $$("#current_user").data("user", value);
+                    $$('.button-login').text("Switch user");
                 }
             },
             function (value) {

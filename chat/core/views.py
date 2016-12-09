@@ -12,3 +12,8 @@ def index(request):
         'messages': messages,
     }
     return HttpResponse(template.render(context, request))
+
+
+def slides(request):
+    template = loader.get_template('core/slides.html')
+    return HttpResponse(template.render({}, request))
