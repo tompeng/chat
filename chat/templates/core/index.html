@@ -1,0 +1,78 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- Required meta tags-->
+	<meta charset="utf-8">
+	<meta name="viewport"
+	      content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<!-- Your app title -->
+	<title>Chatroom</title>
+	<!-- Path to Framework7 Library CSS, iOS Theme -->
+	<link rel="stylesheet" href="{% static "vendors/Framework7/dist/css/framework7.ios.min.css" %}">
+	<!-- Path to Framework7 color related styles, iOS Theme -->
+	<link rel="stylesheet" href="{% static "vendors/Framework7/dist/css/framework7.ios.colors.min.css" %}">
+	<!-- Path to your custom app styles-->
+	<link rel="stylesheet" href="{% static "css/my-app.css" %}">
+</head>
+<body>
+<!-- Status bar overlay for full screen mode (PhoneGap) -->
+<div class="statusbar-overlay"></div>
+<!-- Views -->
+<div class="views">
+	<!-- Your main view, should have "view-main" class -->
+	<div class="view view-main">
+		<!-- Top Navbar-->
+		<div class="navbar">
+			<div class="navbar-inner">
+				<!-- We need cool sliding animation on title element, so we have additional "sliding" class -->
+				<div class="left" id="current_user" data-user="Anonymous">Anonymous</div>
+				<div class="right"><a href="#" class="link" data-action="login">Login</a></div>
+			</div>
+		</div>
+		<!-- Pages container, because we use fixed-through navbar and toolbar, it has additional appropriate classes-->
+		<div class="pages navbar-through toolbar-through">
+			<!-- Page, "data-page" contains page name -->
+			<div class="page" data-page="index">
+				<div class="page-content messages-content">
+					<div class="messages">
+						<!-- Date stamp -->
+						<div class="messages-date">Today</div>
+
+						{% for message in messages %}
+							<!-- Received message (by default - grey on left side) -->
+							<div class="message message-received">
+								<!-- Sender name -->
+								<div class="message-name">
+									{% if 'Anonymous_' in message.user or not message.user %}
+										Anonymous
+									{% else %}
+										{{ message.user }}
+									{% endif %}
+								</div>
+
+								<!-- Bubble with text -->
+								<div class="message-text">{{ message.message }}</div>
+							</div>
+						{% endfor %}
+
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Bottom Toolbar-->
+		<div class="toolbar messagebar">
+			<div class="toolbar-inner">
+				<textarea id="input_message" placeholder="Message"></textarea><a href="#" id="button_send" class="link">Send</a>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Path to Framework7 Library JS-->
+<script type="text/javascript" src="{% static "vendors/Framework7/dist/js/framework7.min.js" %}"></script>
+<!-- Path to your app js-->
+<script type="text/javascript" src="{% static "js/my-app.js" %}"></script>
+</body>
+</html> 

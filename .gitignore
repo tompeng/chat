@@ -3,7 +3,8 @@
 /lib
 .Python
 .DS_Store
-
+/bower_components
+.idea/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
