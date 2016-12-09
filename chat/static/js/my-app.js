@@ -31,7 +31,7 @@
     $$("#button_send").on('click', function() {
         var msg = $$("#input_message").val();
         if(msg === "") {
-            myApp.alert("Can't send an empty text", "Send Error");
+            myApp.alert("Can't send an empty text.", "Send Error");
         } else {
             myMessages.appendMessage({
                 text: msg,
@@ -82,6 +82,22 @@
             });
         }
     }
+
+    $$('.button-login').on('click', function () {
+        myApp.prompt('What is your name?', 'Login',
+            function (value) {
+                if(value === "") {
+                    myApp.alert("No username provided.", "Login Error");
+                } else {
+                    $$("#current_user").text("Logged in as: " + value);
+                    $$("#current_user").data("user", value);
+                }
+            },
+            function (value) {
+                return;
+            }
+        );
+    });
 
 
 }(Framework7));
