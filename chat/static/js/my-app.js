@@ -6,7 +6,17 @@
 
 	$$ = Dom7;
 
-    var socket = new WebSocket("ws://" + window.location.host + "/chat-dev2/");
+	var room;
+
+    if ( typeof $$.parseUrlQuery(window.location.href).room != 'undefined') {
+        room = $$.parseUrlQuery(window.location.href).room;
+    } else {
+        room = "chat-dev2";
+    }
+
+
+
+    var socket = new WebSocket("ws://" + window.location.host + "/" + room + "/");
 
     var myApp = new Framework7({
 		uniqueHistory: true,

@@ -1,6 +1,6 @@
 # in routing.py
 from channels.routing import route
-from core.consumers import ws_connect, ws_message, ws_disconnect, msg_consumer
+from core.consumers import ws_connect, ws_message, ws_disconnect
 
 channel_routing = [
     route("websocket.connect", ws_connect),

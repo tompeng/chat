@@ -6,7 +6,8 @@ from .models import ChatMessage
 
 # Create your views here.
 def index(request):
-    messages = ChatMessage.objects.filter(room="chat-dev2").order_by('-time')
+    room = request.GET.get('room', 'chat-dev2')
+    messages = ChatMessage.objects.filter(room=room).order_by('-time')
     template = loader.get_template('core/index.html')
     context = {
         'messages': messages,
