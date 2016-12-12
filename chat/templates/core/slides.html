@@ -1,0 +1,155 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- Required meta tags-->
+	<meta charset="utf-8">
+	<meta name="viewport"
+	      content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<!-- Your app title -->
+	<title>Chatroom</title>
+	<!-- Path to Framework7 Library CSS, iOS Theme -->
+	<link rel="stylesheet" href="{% static "vendors/Framework7/dist/css/framework7.ios.min.css" %}">
+	<!-- Path to Framework7 color related styles, iOS Theme -->
+	<link rel="stylesheet" href="{% static "vendors/Framework7/dist/css/framework7.ios.colors.min.css" %}">
+	<!-- Path to your custom app styles-->
+	<link rel="stylesheet" href="{% static "css/my-app.css" %}">
+</head>
+<body>
+<!-- Status bar overlay for full screen mode (PhoneGap) -->
+<div class="statusbar-overlay"></div>
+<!-- Views -->
+<div class="views">
+	<!-- Your main view, should have "view-main" class -->
+	<div class="view view-main">
+		<!-- Top Navbar-->
+		<div class="navbar">
+			<div class="navbar-inner">
+				<!-- We need cool sliding animation on title element, so we have additional "sliding" class -->
+				<div class="left" id="current_user" data-user="Anonymous"></div>
+				<div class="center">Tom's hackday summary</div>
+				<div class="right"><a href="#" class="link button-login" data-action="login"></a></div>
+			</div>
+		</div>
+		<!-- Pages container, because we use fixed-through navbar and toolbar, it has additional appropriate classes-->
+		<div class="pages navbar-through toolbar-through">
+			<!-- Page, "data-page" contains page name -->
+			<div class="page" data-page="index">
+				<div class="page-content messages-content">
+					<div class="messages">
+						<!-- Date stamp -->
+						<div class="messages-date">-</div>
+
+						<div class="message message-received">
+							<!-- Sender name -->
+							<div class="message-name">
+									Tom
+							</div>
+
+							<!-- Bubble with text -->
+							<div class="message-text">
+								Goal:
+							</div>
+							<div class="message-label">Nov 11, 2016</div>
+
+						</div>
+
+						<div class="message message-received">
+							<!-- Sender name -->
+							<div class="message-name">
+								Tom
+							</div>
+
+							<!-- Bubble with text -->
+							<div class="message-text">
+								try some websocket
+							</div>
+							<div class="message-label">Nov 11, 2016</div>
+
+						</div>
+
+
+						<div class="messages-date">-</div>
+
+
+						<div class="message message-received">
+							<!-- Sender name -->
+							<div class="message-name">
+								Tom
+							</div>
+
+							<!-- Bubble with text -->
+							<div class="message-text">
+								Tools used:
+							</div>
+							<div class="message-label">Nov 11, 2016</div>
+
+						</div>
+						<div class="message message-received">
+							<!-- Sender name -->
+							<div class="message-name">
+								Tom
+							</div>
+
+							<!-- Bubble with text -->
+							<div class="message-text">
+								backend: django, channels<br>
+								frontend: framework7
+							</div>
+							<div class="message-label">Nov 11, 2016</div>
+
+						</div>
+
+						<div class="messages-date">-</div>
+
+						<div class="message message-received">
+							<!-- Sender name -->
+							<div class="message-name">
+								Tom
+							</div>
+
+							<!-- Bubble with text -->
+							<div class="message-text">
+								Conclusions:
+							</div>
+							<div class="message-label">Nov 11, 2016</div>
+
+						</div>
+						<div class="message message-received">
+							<!-- Sender name -->
+							<div class="message-name">
+								Tom
+							</div>
+
+							<!-- Bubble with text -->
+							<div class="message-text">
+								channels<br>
+								framework7 messages
+							</div>
+							<div class="message-label">Nov 11, 2016</div>
+
+						</div>
+
+						<div class="messages-date">-</div>
+
+
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Bottom Toolbar-->
+		<div class="toolbar messagebar">
+			<div class="toolbar-inner">
+				<textarea id="input_message" placeholder="Message"></textarea><a href="#" id="button_send" class="link">Send</a>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Path to Framework7 Library JS-->
+<script type="text/javascript" src="{% static "vendors/Framework7/dist/js/framework7.min.js" %}"></script>
+<!-- Path to your app js-->
+<script type="text/javascript" src="{% static "js/my-app.js" %}"></script>
+</body>
+</html> 
