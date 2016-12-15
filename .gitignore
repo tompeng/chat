@@ -5,6 +5,7 @@
 .DS_Store
 bower_components/
 .idea/
+pip-selfcheck.json
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
